@@ -22,9 +22,7 @@ static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* ua
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...) {
 	char temp[TEMP_BUFFER_SIZE];
 
-	for (int _i = 0; _i < TEMP_BUFFER_SIZE; _i++) {
-		temp[_i] = 0;
-	}
+	for (int _i = 0; _i < TEMP_BUFFER_SIZE; _i++) { temp[_i] = 0; }
 
 	va_list va_args;
 	va_start(va_args, format_str);
