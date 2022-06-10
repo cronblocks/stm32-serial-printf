@@ -15,7 +15,8 @@ static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* ua
 			uart_ptr,
 			(const uint8_t *)str,
 			(uint16_t)strlen(str),
-			TRANSMISSION_TIMEOUT_MS);
+			TRANSMISSION_TIMEOUT_MS
+			);
 }
 
 void serial_printf(UART_HandleTypeDef* uart_ptr, const char* format_str, ...) {
