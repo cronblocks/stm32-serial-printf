@@ -10,16 +10,16 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* uart_ptr) {
+static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* uart_handle_ptr) {
 	HAL_UART_Transmit(
-			uart_ptr,
-			(const uint8_t *)str,
-			(uint16_t)strlen(str),
+			uart_handle_ptr,
+			(const uint8_t *) str,
+			(uint16_t) strlen(str),
 			TRANSMISSION_TIMEOUT_MS
 			);
 }
 
-void serial_printf(UART_HandleTypeDef* uart_ptr, const char* format_str, ...) {
+void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...) {
 	char temp[TEMP_BUFFER_SIZE];
 
 	for (int _i = 0; _i < TEMP_BUFFER_SIZE; _i++) {
@@ -76,6 +76,6 @@ void serial_printf(UART_HandleTypeDef* uart_ptr, const char* format_str, ...) {
 
 	va_end(va_args);
 
-	send_string_to_serial(temp, uart_ptr);
+	send_string_to_serial(temp, uart_handle_ptr);
 }
 
