@@ -39,9 +39,10 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 	for (int format_str_index = 0; format_str_index < strlen(format_str); format_str_index++) {
 
 		identifier_char = format_str[format_str_index + 1];
-		identifier_modifier = 0;
+		identifier_modifier = -1;
 
-		if ( (identifier_char == '1' ||
+		if ( (identifier_char == '0' ||
+			  identifier_char == '1' ||
 			  identifier_char == '2' ||
 			  identifier_char == '3' ||
 			  identifier_char == '4') && (format_str_index + 1 < strlen(format_str)) ) {
@@ -53,7 +54,7 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 				identifier_modifier = identifier_char - 48;
 				identifier_char = __temp_char;
 			} else {
-				identifier_modifier = 0;
+				identifier_modifier = -1;
 			}
 		}
 
@@ -83,6 +84,7 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 
 					// Value is zero
 					switch (identifier_modifier) {
+					case 0:
 					case 1:  sprintf(&final_str[final_str_index], "00000000");                         break;
 					case 2:  sprintf(&final_str[final_str_index], "0000000000000000");                 break;
 					case 3:	 sprintf(&final_str[final_str_index], "000000000000000000000000");         break;
@@ -93,7 +95,11 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 				} else {
 
 					// Fill zeros if required
-					if (identifier_modifier >= 1 && identifier_modifier <= 4) {
+					if (identifier_modifier >= 0 && identifier_modifier <= 4) {
+						if (identifier_modifier == 0) {
+							while (identifier_modifier * 8 < __temp_count) identifier_modifier++;
+						}
+
 						while (__temp_count < identifier_modifier * 8) {
 							final_str[__temp_index++] = 48;
 							final_str[__temp_index] = 0;
@@ -114,7 +120,7 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 					}
 				}
 
-				if (identifier_modifier >= 1 && identifier_modifier <= 4) {
+				if (identifier_modifier >= 0 && identifier_modifier <= 4) {
 					format_str_index++; // Extra addition
 				}
 

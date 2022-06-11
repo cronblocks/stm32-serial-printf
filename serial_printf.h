@@ -16,6 +16,7 @@
 /**
  * Supported formats:
  * %b, %B   - Binary
+ * %0b, %0B - Binary Filled with Leading Zeros up to Nearest Byte, e.g., %0b
  * %1b, %1B - Binary with 1 Byte Width - Filled with Leading Zeros, e.g., %1b
  * %2b, %2B - Binary with 2 Byte Width - Filled with Leading Zeros, e.g., %2b
  * %3b, %3B - Binary with 3 Byte Width - Filled with Leading Zeros, e.g., %3b
