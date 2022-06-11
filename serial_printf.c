@@ -20,9 +20,9 @@ static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* ua
 }
 
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...) {
-	char temp[TEMP_BUFFER_SIZE];
+	char final_str[STRING_BUFFER_SIZE];
 
-	for (int _i = 0; _i < TEMP_BUFFER_SIZE; _i++) { temp[_i] = 0; }
+	for (int _i = 0; _i < STRING_BUFFER_SIZE; _i++) { final_str[_i] = 0; }
 
 	va_list va_args;
 	va_start(va_args, format_str);
@@ -35,38 +35,38 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 		next_char = format_str[format_str_index + 1];
 
 		if (format_str[format_str_index] != '%') {
-			temp[temp_index++] = format_str[format_str_index];
+			final_str[temp_index++] = format_str[format_str_index];
 		} else {
 			switch (next_char) {
 
 			case 'd':
 			case 'D':
-				sprintf(&temp[temp_index], "%d", va_arg(va_args, int));
-				temp_index = strlen(temp);
+				sprintf(&final_str[temp_index], "%d", va_arg(va_args, int));
+				temp_index = strlen(final_str);
 				format_str_index++;
 				break;
 
 			case 'u':
 			case 'U':
-				sprintf(&temp[temp_index], "%u", va_arg(va_args, unsigned int));
-				temp_index = strlen(temp);
+				sprintf(&final_str[temp_index], "%u", va_arg(va_args, unsigned int));
+				temp_index = strlen(final_str);
 				format_str_index++;
 				break;
 
 			case 'x':
-				sprintf(&temp[temp_index], "0x%x", va_arg(va_args, unsigned int));
-				temp_index = strlen(temp);
+				sprintf(&final_str[temp_index], "0x%x", va_arg(va_args, unsigned int));
+				temp_index = strlen(final_str);
 				format_str_index++;
 				break;
 
 			case 'X':
-				sprintf(&temp[temp_index], "0x%X", va_arg(va_args, unsigned int));
-				temp_index = strlen(temp);
+				sprintf(&final_str[temp_index], "0x%X", va_arg(va_args, unsigned int));
+				temp_index = strlen(final_str);
 				format_str_index++;
 				break;
 
 			default:
-				temp[temp_index++] = format_str[format_str_index];
+				final_str[temp_index++] = format_str[format_str_index];
 				break;
 			}
 		}
@@ -74,6 +74,6 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 
 	va_end(va_args);
 
-	send_string_to_serial(temp, uart_handle_ptr);
+	send_string_to_serial(final_str, uart_handle_ptr);
 }
 

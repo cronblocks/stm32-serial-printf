@@ -11,7 +11,7 @@
 #include "main.h"
 
 #define TRANSMISSION_TIMEOUT_MS      20
-#define TEMP_BUFFER_SIZE             100
+#define STRING_BUFFER_SIZE           100
 
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...);
 
