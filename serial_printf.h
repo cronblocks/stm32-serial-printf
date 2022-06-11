@@ -11,7 +11,7 @@
 #include "main.h"
 
 #define TRANSMISSION_TIMEOUT_MS      20
-#define STRING_BUFFER_SIZE           100
+#define STRING_BUFFER_SIZE           200
 
 /**
  * Supported formats:

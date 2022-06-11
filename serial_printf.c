@@ -97,6 +97,8 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 						while (__temp_count < identifier_modifier * 8) {
 							final_str[__temp_index++] = 48;
 							final_str[__temp_index] = 0;
+
+							__temp_count++;
 						}
 					}
 
