@@ -16,6 +16,7 @@
 /**
  * Supported formats:
  * %b, %B - Binary
+ * %1/2/3/4b, %1/2/3/4B - Binary with 1/2/3/4 Bytes, e.g., %2b
  * %d, %D - Decimal
  * %u, %U - Unsigned Decimal
  * %x     - Hex of Unsigned Decimal with Lower-case Letters
