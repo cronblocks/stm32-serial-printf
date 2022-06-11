@@ -13,6 +13,15 @@
 #define TRANSMISSION_TIMEOUT_MS      20
 #define STRING_BUFFER_SIZE           100
 
+/**
+ * Supported formats:
+ * %b, %B - Binary
+ * %d, %D - Decimal
+ * %u, %U - Unsigned Decimal
+ * %x     - Hex of Unsigned Decimal with Lower-case Letters
+ * %X     - Hex of Unsigned Decimal with Upper-case Letters
+ *
+ */
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...);
 
 
