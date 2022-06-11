@@ -15,13 +15,17 @@
 
 /**
  * Supported formats:
- * %b, %B - Binary
- * %1/2/3/4b, %1/2/3/4B - Binary with 1/2/3/4 Bytes, e.g., %2b
- * %d, %D - Decimal
- * %u, %U - Unsigned Decimal
- * %x     - Hex of Unsigned Decimal with Lower-case Letters
- * %X     - Hex of Unsigned Decimal with Upper-case Letters
+ * %b, %B   - Binary
+ * %1b, %1B - Binary with 1 Byte Width - Filled with Leading Zeros, e.g., %1b
+ * %2b, %2B - Binary with 2 Byte Width - Filled with Leading Zeros, e.g., %2b
+ * %3b, %3B - Binary with 3 Byte Width - Filled with Leading Zeros, e.g., %3b
+ * %4b, %4B - Binary with 4 Byte Width - Filled with Leading Zeros, e.g., %4b
+ * %d, %D   - Decimal
+ * %u, %U   - Unsigned Decimal
+ * %x       - Hex of Unsigned Decimal with Lower-case Letters
+ * %X       - Hex of Unsigned Decimal with Upper-case Letters
  *
+ * e.g., serial_printf(&huart1, "Binary = %4b, Hex = 0x%X", value, value);
  */
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...);
 
