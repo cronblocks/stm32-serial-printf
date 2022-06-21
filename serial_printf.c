@@ -42,10 +42,10 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 		identifier_modifier = -1;
 
 		if ( (identifier_char == '0' ||
-			  identifier_char == '1' ||
-			  identifier_char == '2' ||
-			  identifier_char == '3' ||
-			  identifier_char == '4') && (format_str_index + 1 < strlen(format_str)) ) {
+		      identifier_char == '1' ||
+		      identifier_char == '2' ||
+		      identifier_char == '3' ||
+		      identifier_char == '4') && (format_str_index + 1 < strlen(format_str)) ) {
 
 			identifier_modifier = format_str[format_str_index + 2];
 
