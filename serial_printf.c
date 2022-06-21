@@ -4,7 +4,7 @@
  *  Created on: Jun 10, 2022
  *      Author: usama
  */
-#include "../serial_printf/serial_printf.h"
+#include "serial_printf.h"
 
 #include <string.h>
 #include <stdio.h>
