@@ -15,13 +15,13 @@ static inline void send_string_to_serial(const char* str, UART_HandleTypeDef* ua
 	HAL_UART_Transmit(uart_handle_ptr,
 			  (const uint8_t *) str,
 			  (uint16_t) strlen(str),
-			  TRANSMISSION_TIMEOUT_MS);
+			  SERIAL_TRANSMISSION_TIMEOUT_MS);
 }
 
 void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, ...) {
-	char final_str[STRING_BUFFER_SIZE];
+	char final_str[SERIAL_STRING_BUFFER_SIZE];
 
-	for (int _i = 0; _i < STRING_BUFFER_SIZE; _i++) { final_str[_i] = 0; }
+	for (int _i = 0; _i < SERIAL_STRING_BUFFER_SIZE; _i++) { final_str[_i] = 0; }
 
 	va_list va_args;
 	va_start(va_args, format_str);
