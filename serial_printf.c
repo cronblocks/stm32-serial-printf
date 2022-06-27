@@ -127,6 +127,13 @@ void serial_printf(UART_HandleTypeDef* uart_handle_ptr, const char* format_str, 
 				format_str_index++;
 				break;
 
+			case 'c':
+			case 'C':
+				sprintf(&final_str[final_str_index], "%c", va_arg(va_args, int));
+				final_str_index = strlen(final_str);
+				format_str_index++;
+				break;
+			
 			case 'd':
 			case 'D':
 				sprintf(&final_str[final_str_index], "%d", va_arg(va_args, int));
