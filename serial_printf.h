@@ -8,7 +8,7 @@
 #ifndef _SERIAL_PRINTF_H_
 #define _SERIAL_PRINTF_H_
 
-#include "main.h"
+#include "stm32f7xx_hal.h"
 
 #define SERIAL_TRANSMISSION_TIMEOUT_MS      20
 #define SERIAL_STRING_BUFFER_SIZE           200
