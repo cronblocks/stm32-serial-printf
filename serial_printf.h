@@ -21,6 +21,7 @@
  * %2b, %2B - Binary with 2 Byte Width - Filled with Leading Zeros, e.g., %2b
  * %3b, %3B - Binary with 3 Byte Width - Filled with Leading Zeros, e.g., %3b
  * %4b, %4B - Binary with 4 Byte Width - Filled with Leading Zeros, e.g., %4b
+ * %c, %C   - ASCII Character
  * %d, %D   - Decimal
  * %u, %U   - Unsigned Decimal
  * %x       - Hex of Unsigned Decimal with Lower-case Letters
