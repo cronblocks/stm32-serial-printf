@@ -1,6 +1,6 @@
 /*****************************************************************************************
  * Purpose:
- *     Providing alternate to printf functionality for any given UART
+ *     Providing alternate to printf with extensible functionality for any given UART
  *
  *
  *****************************************************************************************
