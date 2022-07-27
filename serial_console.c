@@ -19,7 +19,7 @@
 
 #include "stm32f7xx_hal.h"
 
-
+// Set this handle to any initialized UART
 UART_HandleTypeDef *console_io_uart_ptr = 0;
 
 
