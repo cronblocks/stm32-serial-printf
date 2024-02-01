@@ -1,6 +1,7 @@
 /*****************************************************************************************
  * Purpose:
- *     Providing sending / receiving the printf / scanf strings with any given UART
+ *     Providing sending / receiving the printf / scanf strings to/from a specified
+ * UART interface.
  *
  *
  *****************************************************************************************
@@ -19,7 +20,8 @@
 
 #include "stm32f7xx_hal.h"
 
-// Set this handle to any initialized UART
+//- IMPORTANT:
+//-     Set this handle to any initialized UART
 UART_HandleTypeDef *console_io_uart_ptr = 0;
 
 
